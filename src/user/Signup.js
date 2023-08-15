@@ -87,8 +87,8 @@ const Signup = () => {
       </div>
     );
   };
-  console.log(error);
-  const successMessage = () => {
+
+  const Message = () => {
     return (
       <div
         className={`alert  ${success && "alert-success d-inline-flex"} ${
@@ -104,12 +104,6 @@ const Signup = () => {
                 Login here
               </Link>
             </div>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
           </>
         )}
         {!success && error && (
@@ -124,7 +118,7 @@ const Signup = () => {
   return (
     <Base title="Sign Up Page" description="A page where user can sign up...">
       {signUpForm()}
-      {successMessage()}
+      {Message()}
     </Base>
   );
 };
