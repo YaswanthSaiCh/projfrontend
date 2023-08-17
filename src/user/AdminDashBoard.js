@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AdminDashBoard = () => {
   const {
-    user: { name, email, role },
+    user: { name, email },
   } = isUserAuthenticated();
   const adminLeftPane = () => {
     return (
@@ -18,6 +18,11 @@ const AdminDashBoard = () => {
               to="/admin/create/category"
             >
               Create categories
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link align-middle px-0" to="/admin/categories">
+              Manage categories
             </Link>
           </li>
           <li className="nav-item">

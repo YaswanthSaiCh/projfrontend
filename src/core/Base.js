@@ -10,7 +10,7 @@ const Base = ({
   return (
     <div>
       <Menu />
-      <div className="container-fluid p-0">
+      <div className="container p-0 mt-3">
         <div data-bs-theme="dark" className="jumbotron text-white text-center">
           <h2 className="display-4">{title}</h2>
           <p className="lead">{description}</p>
