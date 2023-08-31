@@ -8,7 +8,7 @@ const Base = ({
   children,
 }) => {
   return (
-    <div>
+    <div className="main-wrapper min-vh-100 p-relative">
       <Menu />
       <div className="container p-0 mt-3">
         <div data-bs-theme="dark" className="jumbotron text-white text-center">
@@ -20,18 +20,18 @@ const Base = ({
             {children}
           </div>
         </div>
-        <footer data-bs-theme="dark" className="footer mt-auto py-3">
-          <div className="container-fluid bg-success text-white text-center py-3">
-            <h4>If you got any questions, feel free to react out...</h4>
-            <button className="btn btn-warning btn-large">Contact us</button>
-          </div>
-          <div className="container text-center">
-            <span className="text-body-secondary">
-              An amazing MERN bootcamp 💚
-            </span>
-          </div>
-        </footer>
       </div>
+      <footer data-bs-theme="dark" className="footer mt-auto py-3">
+        <div className="container-fluid bg-success text-white text-center py-3">
+          <h4>If you got any questions, feel free to react out...</h4>
+          <button className="btn btn-warning btn-large">Contact us</button>
+        </div>
+        <div className="container text-center">
+          <span className="text-body-secondary">
+            An amazing MERN bootcamp 💚
+          </span>
+        </div>
+      </footer>
     </div>
   );
 };

@@ -7,10 +7,15 @@
 body {
   background: #202124;
 }
+.main-wrapper {
+  display: table;
+  width: 100%;
+}
 
+.main-wrapper > footer {
+  display: table-row;
+}
 footer {
-  position: absolute;
   bottom: 0px;
-  right: 0px;
-  left: 0px;
+  width: 100%;
 }

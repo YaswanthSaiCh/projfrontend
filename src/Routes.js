@@ -9,6 +9,8 @@ import AdminDashboard from "./user/AdminDashBoard";
 import AddCategory from "./admin/AddCategory";
 import ManageCategories from "./admin/ManageCategories";
 import AddProduct from "./admin/AddProduct";
+import ManageProducts from "./admin/ManageProducts";
+import UpdateProduct from "./admin/UpdateProduct";
 
 const RequireAuth = ({ children, redirectTo }) => {
   return isUserAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -71,6 +73,24 @@ const AllRoutes = () => {
           element={
             <RequireAdminAuth redirectTo="/signin">
               <AddProduct />
+            </RequireAdminAuth>
+          }
+        />
+        <Route
+          path="/admin/products"
+          exact
+          element={
+            <RequireAdminAuth redirectTo="/signin">
+              <ManageProducts />
+            </RequireAdminAuth>
+          }
+        />
+        <Route
+          path="/admin/product/update/:productId"
+          exact
+          element={
+            <RequireAdminAuth redirectTo="/signin">
+              <UpdateProduct />
             </RequireAdminAuth>
           }
         />

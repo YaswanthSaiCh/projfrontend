@@ -32,7 +32,6 @@ export const createProduct = (userId, token, product) => {
     formDataObject[key] = value;
   });
 
-  console.log("Form Data:", formDataObject);
   return fetch(`${API}/product/create/${userId}`, {
     method: "POST",
     headers: {
@@ -48,7 +47,7 @@ export const createProduct = (userId, token, product) => {
 };
 
 export const getAllProducts = () => {
-  return fetch(`${API}/product/all`, {
+  return fetch(`${API}/allproducts`, {
     method: "GET",
   })
     .then((response) => {
@@ -68,10 +67,10 @@ export const getProduct = (productId) => {
 };
 
 export const updateProduct = (productId, userId, token, product) => {
-  return fetch(`${API}/product/update/${productId}/${userId}`, {
+  console.log(Object.fromEntries(product));
+  return fetch(`${API}/product/${productId}/${userId}`, {
     method: "PUT",
     headers: {
-      Accept: "application/json",
       Authorization: `Bearer ${token}`,
     },
     body: product,
