@@ -33,6 +33,7 @@ const ManageProducts = () => {
       })
       .catch((error) => console.log(error));
   };
+
   return (
     <>
       <Base

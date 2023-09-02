@@ -11,6 +11,7 @@ import ManageCategories from "./admin/ManageCategories";
 import AddProduct from "./admin/AddProduct";
 import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
+import UpdateCategory from "./admin/UpdateCategory";
 
 const RequireAuth = ({ children, redirectTo }) => {
   return isUserAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -64,6 +65,15 @@ const AllRoutes = () => {
           element={
             <RequireAdminAuth redirectTo="/signin">
               <ManageCategories />
+            </RequireAdminAuth>
+          }
+        />
+        <Route
+          path="/admin/category/update/:categoryId"
+          exact
+          element={
+            <RequireAdminAuth redirectTo="/signin">
+              <UpdateCategory />
             </RequireAdminAuth>
           }
         />
