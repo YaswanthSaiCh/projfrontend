@@ -1,31 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { API } from "../backend";
+import { Navigate } from "react-router-dom";
+import { addItemToCart, removeItemFromCart } from "./helper/cartHelper";
 
-const Card = ({ product, AddToCart = true, RemoveFromCart = false }) => {
+const Card = ({
+  product,
+  AddToCart = true,
+  RemoveFromCart = false,
+  reload = undefined,
+  setReload = (func) => func,
+}) => {
+  const [redirect, setRedirect] = useState(false);
+
   const imageURL = product
     ? `${API}/product/photo/${product._id}`
     : "https://images.freecreatives.com/wp-content/uploads/2015/03/Huge-Backgrounds-63.jpg";
 
+  const doRedirect = (redirect) => {
+    if (redirect) return <Navigate to="/cart" />;
+  };
+
+  const addToCart = () => {
+    addItemToCart(product, () => setRedirect(true));
+  };
+
   const showAddtoCart = (AddToCart) => {
     return (
       AddToCart && (
-        <button className="btn btn-success rounded mb-3" onClick={() => {}}>
+        <button className="btn btn-success rounded mb-3" onClick={addToCart}>
           Add to Cart
         </button>
       )
     );
   };
+
   const showRemovetoCart = (RemoveFromCart) => {
     return (
       RemoveFromCart && (
-        <button className="btn btn-outline-danger rounded" onClick={() => {}}>
+        <button
+          className="btn btn-outline-danger rounded mb-3"
+          onClick={() => {
+            removeItemFromCart(product._id);
+            setReload(!reload);
+          }}
+        >
           Remove from Cart
         </button>
       )
     );
   };
+
   return (
     <div className="card border-success mb-3" style={{ width: "18rem" }}>
+      {doRedirect(redirect)}
       <div className="" style={{ maxHeight: "12rem", backgroundSize: "cover" }}>
         <img
           src={imageURL}
