@@ -13,6 +13,7 @@ import AddProduct from "./admin/AddProduct";
 import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
 import UpdateCategory from "./admin/UpdateCategory";
+import Success from "./core/Success";
 
 const RequireAuth = ({ children, redirectTo }) => {
   return isUserAuthenticated() ? children : <Navigate to={redirectTo} />;
@@ -34,6 +35,11 @@ const AllRoutes = () => {
         <Route path="/signup" exact element={<Signup />} />
         <Route path="/signin" exact element={<Signin />} />
         <Route path="/cart" exact element={<Cart />} />
+        <Route
+          path="/payment/success/:session_id"
+          exact
+          element={<Success />}
+        />
         <Route
           path="/user/dashboard"
           exact

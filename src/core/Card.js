@@ -21,6 +21,7 @@ const Card = ({
   };
 
   const addToCart = () => {
+    product.count = 1;
     addItemToCart(product, () => setRedirect(true));
   };
 
@@ -51,7 +52,7 @@ const Card = ({
   };
 
   return (
-    <div className="card border-success mb-3" style={{ width: "18rem" }}>
+    <div className="card border-success my-3" style={{ width: "18rem" }}>
       {doRedirect(redirect)}
       <div className="" style={{ maxHeight: "12rem", backgroundSize: "cover" }}>
         <img

@@ -30,7 +30,10 @@ const Home = () => {
   };
 
   return (
-    <Base title="Welcome to T-shirt store" description="">
+    <Base
+      title="Welcome to T-shirt store"
+      description="Select from a wide range of shirts"
+    >
       <div className="row">
         {products &&
           products.map((item) => (
