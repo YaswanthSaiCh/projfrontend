@@ -43,7 +43,8 @@ export const authenticateUser = (data, next) => {
 
 export const signout = (next) => {
   if (typeof window !== "undefined") {
-    localStorage.removeItem("auth_token");
+    // localStorage.removeItem("auth_token");
+    localStorage.clear();
     next();
     return fetch(`${API}/signout`, {
       method: "GET",
